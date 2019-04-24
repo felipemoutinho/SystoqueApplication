@@ -1,0 +1,45 @@
+﻿@model IEnumerable<SystoqueApplication.Models.VendedorModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Vendedores</h2>
+
+<p>
+    @Html.ActionLink("Novo Vendedor", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Datanasc)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Comissao)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Datanasc)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Comissao)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id=item.Matricula }) |
+            @Html.ActionLink("Detalhes", "Details", new { id=item.Matricula }) |
+            @Html.ActionLink("Deletar", "Delete", new { id=item.Matricula })
+        </td>
+    </tr>
+}
+
+</table>
