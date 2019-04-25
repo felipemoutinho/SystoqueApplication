@@ -30,5 +30,10 @@ namespace SystoqueApplication.Services
         {
             return _vendedorRepository.Lista();
         }
+
+        public VendedorModel Selecionar(int? id)
+        {
+            return _vendedorRepository.Selecionar(id);
+        }
     } 
 }

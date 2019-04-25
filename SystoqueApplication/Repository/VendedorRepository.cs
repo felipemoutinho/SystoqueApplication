@@ -20,8 +20,10 @@ namespace SystoqueApplication.Repository
 
         public void Alterar(VendedorModel vendedor)
         {
-            // alterar
-
+            string sql = $"update tblvendedor set Nome = '{vendedor.Nome}', DataNasc = '{vendedor.Datanasc.ToString("yyyy/MM/dd")}',Comissao = {vendedor.Comissao}" +
+                $" where Matricula = {vendedor.Matricula}";
+            AcessoBD acesso = new AcessoBD();
+            acesso.ComandoSQL(sql);
         }
 
         public List<VendedorModel> Lista()
@@ -45,6 +47,27 @@ namespace SystoqueApplication.Repository
             }
 
             return vendedores;
+        }
+
+        public VendedorModel Selecionar(int? id)
+        {
+            VendedorModel vendedor;
+            string sql = $"select * from tblvendedor where matricula = {id}";
+            AcessoBD acesso = new AcessoBD();
+            DataTable dt = acesso.Consulta(sql);
+
+            if (dt.Rows.Count > 0)
+            {
+                vendedor = new VendedorModel();
+                vendedor.Matricula = int.Parse(dt.Rows[0]["Matricula"].ToString());
+                vendedor.Nome = dt.Rows[0]["Nome"].ToString();
+                vendedor.Datanasc = DateTime.Parse(dt.Rows[0]["DataNasc"].ToString());
+                vendedor.Comissao = decimal.Parse(dt.Rows[0]["Comissao"].ToString());
+
+            }
+            else vendedor = null;
+
+            return vendedor;
         }
     }
 }

@@ -12,6 +12,8 @@ namespace SystoqueApplication.Interfaces
         void Incluir(VendedorModel vendedor);
         void Alterar(VendedorModel vendedor);
 
+        VendedorModel Selecionar(int? id);
+
         List<VendedorModel> Lista();
     }
 }

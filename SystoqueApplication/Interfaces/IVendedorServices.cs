@@ -13,6 +13,8 @@ namespace SystoqueApplication.Interfaces
 
         string Alterar(VendedorModel vendedor);
 
+        VendedorModel Selecionar(int? id);
+
         List<VendedorModel> Lista();
     }
 }

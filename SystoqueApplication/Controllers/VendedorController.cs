@@ -15,10 +15,17 @@ namespace SystoqueApplication.Controllers
         {
             _vendedorService = vendedorServices;
         }
-        // GET: Vendedor
+        
         public ActionResult Index()
         {
             return View(_vendedorService.Lista());
+        }
+
+        public ActionResult Details(int id)
+        {
+            VendedorModel vendedor = new VendedorModel();
+
+            return View(_vendedorService.Selecionar(id));
         }
 
         public ActionResult Create()
@@ -30,6 +37,21 @@ namespace SystoqueApplication.Controllers
         public ActionResult Create(VendedorModel vendedor)
         {
             _vendedorService.Incluir(vendedor);
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult Edit(int id)
+        {
+            VendedorModel vendedor = new VendedorModel();
+            
+            return View(_vendedorService.Selecionar(id));
+        }
+
+        [HttpPost]
+
+        public ActionResult Edit(VendedorModel vendedor)
+        {
+            _vendedorService.Alterar(vendedor);
             return RedirectToAction("Index");
         }
     }
