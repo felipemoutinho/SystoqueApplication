@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Web;
 
 namespace SystoqueApplication.Models
 {
@@ -23,7 +20,7 @@ namespace SystoqueApplication.Models
 
         [Display(Name = "Comissão")]
         [Required(ErrorMessage = "Obrigatório informar a comissão!")]
-        [Range(1,9,ErrorMessage = "Valor inválido para comissão!")]
+        [DisplayFormat(DataFormatString = "{0:P2}", ApplyFormatInEditMode = true)]
         public decimal Comissao { get; set; }
     }
 }

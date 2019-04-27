@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
+﻿using System.Configuration;
 using System.Data;
-using System.Linq;
-using System.Web;
 using MySql.Data.MySqlClient;
 
 namespace SystoqueApplication.Util
@@ -29,6 +25,8 @@ namespace SystoqueApplication.Util
             connection.Close();
             connection.Dispose();
         }
+
+     
 
         public DataTable Consulta(string sql)
         {

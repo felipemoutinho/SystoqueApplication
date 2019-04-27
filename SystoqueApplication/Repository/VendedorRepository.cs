@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Web;
 using SystoqueApplication.Interfaces;
 using SystoqueApplication.Models;
 using SystoqueApplication.Util;
@@ -68,6 +66,13 @@ namespace SystoqueApplication.Repository
             else vendedor = null;
 
             return vendedor;
+        }
+
+        public void Deletar(VendedorModel vendedor)
+        {
+            string sql = $"delete from tblvendedor where matricula = {vendedor.Matricula}";
+            AcessoBD acesso = new AcessoBD();
+            acesso.ComandoSQL(sql);
         }
     }
 }

@@ -145,11 +145,22 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Interfaces\IProdutoNaoPerecivelRepository.cs" />
+    <Compile Include="Interfaces\IProdutoNaoPerecivelServices.cs" />
+    <Compile Include="Interfaces\IProdutoPerecivelRepository.cs" />
+    <Compile Include="Interfaces\IProdutoPerecivelServices.cs" />
     <Compile Include="Interfaces\IVendedorRepository.cs" />
     <Compile Include="Interfaces\IVendedorServices.cs" />
+    <Compile Include="Models\Produto.cs" />
+    <Compile Include="Models\ProdutoNaoPerecivel.cs" />
+    <Compile Include="Models\ProdutoPerecivel.cs" />
     <Compile Include="Models\VendedorModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\ProdutoNaoPerecivelRepository.cs" />
+    <Compile Include="Repository\ProdutoPerecivelRepository.cs" />
     <Compile Include="Repository\VendedorRepository.cs" />
+    <Compile Include="Services\ProdutoNaoPerecivelServices.cs" />
+    <Compile Include="Services\ProdutoPerecivelServices.cs" />
     <Compile Include="Services\VendedorServices.cs" />
     <Compile Include="Util\AcessoBD.cs" />
   </ItemGroup>
@@ -201,6 +212,7 @@
     <Content Include="Views\Vendedor\Create.cshtml" />
     <Content Include="Views\Vendedor\Edit.cshtml" />
     <Content Include="Views\Vendedor\Details.cshtml" />
+    <Content Include="Views\Vendedor\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

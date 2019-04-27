@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Collections.Generic;
 using SystoqueApplication.Interfaces;
 using SystoqueApplication.Models;
 
@@ -14,16 +11,21 @@ namespace SystoqueApplication.Services
         {
             _vendedorRepository = vendedorRepository;
         }
-        public string Alterar(VendedorModel vendedor)
+        public void Alterar(VendedorModel vendedor)
         {
             _vendedorRepository.Alterar(vendedor);
-            return "ok";
+            
         }
 
-        public string Incluir(VendedorModel vendedor)
+        public void Deletar(VendedorModel vendedor)
+        {
+            _vendedorRepository.Deletar(vendedor);
+        }
+
+        public void Incluir(VendedorModel vendedor)
         {
             _vendedorRepository.Incluir(vendedor);
-            return "ok";
+            
         }
 
         public List<VendedorModel> Lista()

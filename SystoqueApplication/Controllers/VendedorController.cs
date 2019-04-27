@@ -42,16 +42,25 @@ namespace SystoqueApplication.Controllers
 
         public ActionResult Edit(int id)
         {
-            VendedorModel vendedor = new VendedorModel();
-            
             return View(_vendedorService.Selecionar(id));
         }
 
         [HttpPost]
-
         public ActionResult Edit(VendedorModel vendedor)
         {
             _vendedorService.Alterar(vendedor);
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult Delete(int id)
+        {
+            return View(_vendedorService.Selecionar(id));
+        }
+
+        [HttpPost]
+        public ActionResult Delete(VendedorModel vendedor)
+        {
+            _vendedorService.Deletar(vendedor);
             return RedirectToAction("Index");
         }
     }
