@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Data;
 using SystoqueApplication.Interfaces;
 using SystoqueApplication.Models;
+using SystoqueApplication.Util;
 
 namespace SystoqueApplication.Repository
 {
@@ -11,14 +13,35 @@ namespace SystoqueApplication.Repository
             throw new NotImplementedException();
         }
 
-        public ProdutoPerecivel ConsultarProduto()
+        public ProdutoPerecivel ConsultarProduto(string codigoBarras)
         {
-            throw new NotImplementedException();
+            ProdutoPerecivel produto;
+            string sql = $"select cb,nomeproduto,valorvenda,qtdprod,qtdminprod,DataValidade,Lote from tblproduto where cb = '{codigoBarras}'";
+            AcessoBD acesso = new AcessoBD();
+            DataTable dt = acesso.Consulta(sql);
+
+            if (dt.Rows.Count > 0)
+            {
+                produto = new ProdutoPerecivel();
+                produto.codigoBarra = dt.Rows[0]["cb"].ToString();
+                produto.nomeProduto = dt.Rows[0]["nomeproduto"].ToString();
+                produto.valorVenda = decimal.Parse(dt.Rows[0]["valorvenda"].ToString());
+                produto.qtdeProduto = int.Parse(dt.Rows[0]["qtdprod"].ToString());
+                produto.qtdeMinProduto = int.Parse(dt.Rows[0]["qtdminprod"].ToString());
+                produto.dataValidade = DateTime.Parse(dt.Rows[0]["DataValidade"].ToString());
+                produto.lote = dt.Rows[0]["Lote"].ToString();
+
+                return produto;
+            }
+            return produto = null;
         }
 
         public void Incluir(ProdutoPerecivel produto)
         {
-            throw new NotImplementedException();
+            string sql = $"insert into tblproduto (cb,nomeproduto,valorvenda,qtdprod,qtdminprod,DataValidade,Lote) values ('{produto.codigoBarra}', '{produto.nomeProduto}'," +
+                $"{produto.valorVenda},{produto.qtdeProduto},{produto.qtdeMinProduto},'{produto.dataValidade.ToString("yyyy/MM/dd")}','{produto.lote}')";
+            AcessoBD acesso = new AcessoBD();
+            acesso.ComandoSQL(sql);
         }
     }
 }

@@ -24,7 +24,7 @@ namespace SystoqueApplication.Services
 
         public void Incluir(ProdutoNaoPerecivel produto)
         {
-            throw new NotImplementedException();
+            _produtoNaoPerecivelRepository.Incluir(produto);
         }
     }
 }

@@ -4,7 +4,7 @@ namespace SystoqueApplication.Interfaces
 {
     public interface IProdutoPerecivelServices
     {
-        ProdutoPerecivel ConsultarProduto();
+        ProdutoPerecivel ConsultarProduto(string codigoBarras);
 
         void Incluir(ProdutoPerecivel produto);
 

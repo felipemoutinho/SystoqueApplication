@@ -1,5 +1,6 @@
 ﻿using SystoqueApplication.Interfaces;
 using SystoqueApplication.Models;
+using SystoqueApplication.Util;
 
 namespace SystoqueApplication.Repository
 {
@@ -17,7 +18,10 @@ namespace SystoqueApplication.Repository
 
         public void Incluir(ProdutoNaoPerecivel produto)
         {
-            throw new System.NotImplementedException();
+            string sql = $"insert into tblproduto (cb,nomeproduto,valorvenda,qtdprod,qtdminprod,PrazoGarantia) values ('{produto.codigoBarra}', '{produto.nomeProduto}'," +
+                $"{produto.valorVenda},{produto.qtdeProduto},{produto.qtdeMinProduto},'{produto.prazoGarantia}')";
+            AcessoBD acesso = new AcessoBD();
+            acesso.ComandoSQL(sql);
         }
     }
 }

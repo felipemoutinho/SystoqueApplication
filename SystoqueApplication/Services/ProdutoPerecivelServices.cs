@@ -16,14 +16,14 @@ namespace SystoqueApplication.Services
             throw new System.NotImplementedException();
         }
 
-        public ProdutoPerecivel ConsultarProduto()
+        public ProdutoPerecivel ConsultarProduto(string codigoBarras)
         {
-            throw new System.NotImplementedException();
+            return _produtoPerecivelRepository.ConsultarProduto(codigoBarras);
         }
 
         public void Incluir(ProdutoPerecivel produto)
         {
-            throw new System.NotImplementedException();
+            _produtoPerecivelRepository.Incluir(produto);
         }
     }
 }
