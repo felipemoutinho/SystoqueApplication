@@ -141,28 +141,40 @@
     <Compile Include="App_Start\Ninject.Web.Common.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ItemController.cs" />
     <Compile Include="Controllers\ProdutoNaoPerecivelController.cs" />
     <Compile Include="Controllers\ProdutoPerecivelController.cs" />
+    <Compile Include="Controllers\VendaController.cs" />
     <Compile Include="Controllers\VendedorController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Interfaces\IItemRepository.cs" />
+    <Compile Include="Interfaces\IItemService.cs" />
     <Compile Include="Interfaces\IProdutoNaoPerecivelRepository.cs" />
     <Compile Include="Interfaces\IProdutoNaoPerecivelServices.cs" />
     <Compile Include="Interfaces\IProdutoPerecivelRepository.cs" />
     <Compile Include="Interfaces\IProdutoPerecivelServices.cs" />
+    <Compile Include="Interfaces\IVendaRepository.cs" />
+    <Compile Include="Interfaces\IVendaService.cs" />
     <Compile Include="Interfaces\IVendedorRepository.cs" />
     <Compile Include="Interfaces\IVendedorServices.cs" />
+    <Compile Include="Models\Item.cs" />
     <Compile Include="Models\Produto.cs" />
     <Compile Include="Models\ProdutoNaoPerecivel.cs" />
     <Compile Include="Models\ProdutoPerecivel.cs" />
+    <Compile Include="Models\Venda.cs" />
     <Compile Include="Models\VendedorModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\ItemRepository.cs" />
     <Compile Include="Repository\ProdutoNaoPerecivelRepository.cs" />
     <Compile Include="Repository\ProdutoPerecivelRepository.cs" />
+    <Compile Include="Repository\VendaRepository.cs" />
     <Compile Include="Repository\VendedorRepository.cs" />
+    <Compile Include="Services\ItemServices.cs" />
     <Compile Include="Services\ProdutoNaoPerecivelServices.cs" />
     <Compile Include="Services\ProdutoPerecivelServices.cs" />
+    <Compile Include="Services\VendaServices.cs" />
     <Compile Include="Services\VendedorServices.cs" />
     <Compile Include="Util\AcessoBD.cs" />
   </ItemGroup>
@@ -226,9 +238,11 @@
     <Content Include="Views\ProdutoNaoPerecivel\Create.cshtml" />
     <Content Include="Views\ProdutoPerecivel\Index.cshtml" />
     <Content Include="Views\ProdutoNaoPerecivel\Index.cshtml" />
+    <Content Include="Views\Venda\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Item\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
