@@ -1,12 +1,13 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - Systoque</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+    
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -25,14 +26,20 @@
 
                     <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                            Cadastros
+                            Movimentos
                             <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu">
-                            <li>@Html.ActionLink("Vendedores", "Create", "Vendedor")</li>
+                            <li class="dropdown-header">Vendedores</li>
+                            <li>@Html.ActionLink("Cadastrar Vendedor", "Create", "Vendedor")</li>
+                            <li>@Html.ActionLink("Listar Vendedores", "Index", "Vendedor")</li>
                             <li class="divider"></li>
-                            <li>@Html.ActionLink("Produtos Perecíveis", "Create", "ProdutoPerecivel")</li>
-                            <li>@Html.ActionLink("Produtos Não Perecíveis", "Create", "ProdutoNaoPerecivel")</li>
+                            <li class="dropdown-header">Produtos</li>
+                            <li>@Html.ActionLink("Cadastrar Produto Perecível", "Create", "ProdutoPerecivel")</li>
+                            <li>@Html.ActionLink("Pesquisar Produto Perecível", "Index", "ProdutoPerecivel")</li>
+                            <li class="divider"></li>
+                            <li>@Html.ActionLink("Cadastrar Produto Não Perecível", "Create", "ProdutoNaoPerecivel")</li>
+                            <li>@Html.ActionLink("Pesquisar Produto Não Perecível", "Index", "ProdutoNaoPerecivel")</li>
                         </ul>
                     </li>
                     <li>@Html.ActionLink("Lançamento", "Index", "Home")</li>
@@ -54,6 +61,12 @@
                 </ul>
             </div>
         </div>
+        <div>
+            <input type="hidden" id="success" value="@TempData["success"]" />
+            <input type="hidden" id="info" value="@TempData["info"]" />
+            <input type="hidden" id="warning" value="@TempData["warning"]" />
+            <input type="hidden" id="error" value="@TempData["error"]" />
+         </div>
     </div>
     <div class="container body-content">
         @RenderBody()
@@ -65,6 +78,8 @@
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/toastr")
+    
     @RenderSection("scripts", required: false)
 </body>
 </html>

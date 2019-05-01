@@ -14,12 +14,12 @@ namespace SystoqueApplication.Services
         }
         public void Alterar(ProdutoNaoPerecivel produto)
         {
-            throw new NotImplementedException();
+            _produtoNaoPerecivelRepository.Alterar(produto);
         }
 
-        public ProdutoNaoPerecivel ConsultarProduto()
+        public ProdutoNaoPerecivel ConsultarProduto(string codigoBarras)
         {
-            throw new NotImplementedException();
+           return _produtoNaoPerecivelRepository.ConsultarProduto(codigoBarras);
         }
 
         public void Incluir(ProdutoNaoPerecivel produto)

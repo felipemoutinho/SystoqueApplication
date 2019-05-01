@@ -1,35 +1,35 @@
 ﻿@model SystoqueApplication.Models.ProdutoPerecivel
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Pesquisar Produto";
 }
 
-<h2>Index</h2>
+<h3>Pesquisa de Produto Perecível</h3>
 
 @using (Html.BeginForm("Index", "ProdutoPerecivel", FormMethod.Get))
 {
     <div class="form-group">
-        @Html.TextBox("codigoBarras", "", new { @class = "form-control" })
+        @Html.TextBox("codigoBarras", "", new { @class = "form-control", @placeholder = "Código de Barras" })
     </div>
     <div class="form-group">
         <button type="submit" class="btn btn-default">Pesquisar Produto</button>
     </div>
 }
 
-@using (Html.BeginForm("Edit", "ProdutoPerecivel", FormMethod.Post))
+@using (Html.BeginForm("Index", "ProdutoPerecivel", FormMethod.Post))
 {
     @Html.AntiForgeryToken()
 
     <div class="form-horizontal">
-        <h4>ProdutoPerecivel</h4>
+        
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
         <div class="form-group">
-            @Html.LabelFor(model => model.codigoBarra, htmlAttributes: new { @class = "control-label col-md-2" })
+           
             <div class="col-md-10">
-                @Html.EditorFor(model => model.codigoBarra, new { htmlAttributes = new { @class = "form-control", disabled="disabled" } })
-                @Html.ValidationMessageFor(model => model.codigoBarra, "", new { @class = "text-danger" })
+                @Html.HiddenFor(model => model.codigoBarra)
+                
             </div>
         </div>
 
@@ -83,7 +83,7 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+                <input type="submit" value="Salvar" class="btn btn-primary" />
             </div>
         </div>
     </div>

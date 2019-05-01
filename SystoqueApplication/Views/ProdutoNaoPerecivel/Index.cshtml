@@ -1,25 +1,37 @@
-﻿@model SystoqueApplication.Models.ProdutoPerecivel
+﻿@model SystoqueApplication.Models.ProdutoNaoPerecivel
 
 @{
-    ViewBag.Title = "Cadastro Produto";
+    ViewBag.Title = "Pesquisar Produto";
 }
 
-<h2>Cadastrar Produto</h2>
+<h3>Pesquisa de Produto Não Perecível</h3>
 
-@using (Html.BeginForm())
+
+@using (Html.BeginForm("Index", "ProdutoNaoPerecivel", FormMethod.Get))
+{
+    <div class="form-group">
+        @Html.TextBox("codigoBarras", "", new { @class = "form-control", @placeholder="Código de Barras" })
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-default">Pesquisar Produto</button>
+    </div>
+}
+
+
+@using (Html.BeginForm("Index", "ProdutoNaoPerecivel", FormMethod.Post))
 {
     @Html.AntiForgeryToken()
 
     <div class="form-horizontal">
-        <h4>Produto Perecível</h4>
+        
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
         <div class="form-group">
-            @Html.LabelFor(model => model.codigoBarra, htmlAttributes: new { @class = "control-label col-md-2" })
+            
             <div class="col-md-10">
-                @Html.EditorFor(model => model.codigoBarra, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.codigoBarra, "", new { @class = "text-danger" })
+                @Html.HiddenFor(model => model.codigoBarra)
+                
             </div>
         </div>
 
@@ -56,32 +68,21 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.dataValidade, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.prazoGarantia, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.dataValidade, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.dataValidade, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.lote, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.lote, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.lote, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.prazoGarantia, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.prazoGarantia, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-success" />
+                <input type="submit" value="Salvar" class="btn btn-primary" />
             </div>
         </div>
     </div>
 }
 
-<div>
-    @Html.ActionLink("Pesquisar Produto", "Index")
-</div>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

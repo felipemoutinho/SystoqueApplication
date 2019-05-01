@@ -13,7 +13,7 @@ namespace SystoqueApplication.Services
         }
         public void Alterar(ProdutoPerecivel produto)
         {
-            throw new System.NotImplementedException();
+            _produtoPerecivelRepository.Alterar(produto);
         }
 
         public ProdutoPerecivel ConsultarProduto(string codigoBarras)

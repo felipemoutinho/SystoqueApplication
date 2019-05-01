@@ -1,13 +1,13 @@
 ﻿@model SystoqueApplication.Models.VendedorModel
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Informações do Vendedor";
 }
 
-<h2>Details</h2>
+<h2>Informações do Vendedor</h2>
 
 <div>
-    <h4>VendedorModel</h4>
+    <h4>Vendedor</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -37,6 +37,6 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Matricula }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Alterar", "Edit", new { id = Model.Matricula }) |
+    @Html.ActionLink("Voltar à listagem de vendedores", "Index")
 </p>

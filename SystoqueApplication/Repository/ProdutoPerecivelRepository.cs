@@ -10,13 +10,18 @@ namespace SystoqueApplication.Repository
     {
         public void Alterar(ProdutoPerecivel produto)
         {
-            throw new NotImplementedException();
+            string sql = $"update tblproduto set nomeproduto = '{produto.nomeProduto}',valorvenda = {produto.valorVenda}, qtdprod = {produto.qtdeProduto},qtdminprod = {produto.qtdeMinProduto} ," +
+                $" DataValidade = '{produto.dataValidade.ToString("yyyy/MM/dd")}', lote = '{produto.lote}'" +
+                $" where cb = {produto.codigoBarra} and prazogarantia is null";
+            AcessoBD acesso = new AcessoBD();
+            acesso.ComandoSQL(sql);
         }
 
         public ProdutoPerecivel ConsultarProduto(string codigoBarras)
         {
             ProdutoPerecivel produto;
-            string sql = $"select cb,nomeproduto,valorvenda,qtdprod,qtdminprod,DataValidade,Lote from tblproduto where cb = '{codigoBarras}'";
+            string sql = $"select cb,nomeproduto,valorvenda,qtdprod,qtdminprod,DataValidade,Lote from tblproduto where cb = '{codigoBarras}'" +
+                $" and prazogarantia is null";
             AcessoBD acesso = new AcessoBD();
             DataTable dt = acesso.Consulta(sql);
 

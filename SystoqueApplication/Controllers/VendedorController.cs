@@ -33,7 +33,9 @@ namespace SystoqueApplication.Controllers
         public ActionResult Create(VendedorModel vendedor)
         {
             _vendedorService.Incluir(vendedor);
+            TempData["success"] = "Vendedor cadastrado com sucesso!!";
             return RedirectToAction("Index");
+            
         }
 
         public ActionResult Edit(int id)

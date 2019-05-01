@@ -40,5 +40,19 @@ namespace SystoqueApplication.Controllers
             return View(_produtoPerecivelServices.ConsultarProduto(codigoBarras));
         }
 
+        [HttpPost]
+        public ActionResult Index(ProdutoPerecivel produto)
+        {
+            if (ModelState.IsValid)
+            {
+                _produtoPerecivelServices.Alterar(produto);
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                return View("Error");
+            }
+        }
+
     }
 }
