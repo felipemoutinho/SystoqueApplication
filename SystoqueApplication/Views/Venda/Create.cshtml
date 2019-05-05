@@ -1,11 +1,8 @@
 ﻿@model SystoqueApplication.Models.Venda
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Registro de Vendas";
 }
-
-<h2>Create</h2>
-
 
 @using (Html.BeginForm()) 
 {
@@ -48,24 +45,70 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Matricula, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.vendedor, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Matricula, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Matricula, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.vendedor.Matricula, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.vendedor.Matricula, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+                <input type="submit" value="Confirmar Pedido" class="btn btn-success" />
             </div>
         </div>
     </div>
 }
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
+@using (Html.BeginForm("Index", "ProdutoPerecivel", FormMethod.Get))
+{
+    <h4>Incluir no Pedido</h4>
+
+    <div class="form-inline">
+        <div class="form-group">
+            <label for="codigoBarras">Código</label>
+            <input class="form-control" type="text" />
+        </div>
+
+        <div class="form-group">
+            <label for="nomeProduto">Nome Produto</label>
+            <input class="form-control" type="text" />
+        </div>
+
+        <div class="form-group">
+            <label for="qtdeProduto">Quantidade</label>
+            <input class="form-control" type="number" min="1" />
+        </div>
+    </div>
+    <br />
+    <div class="form-inline">
+        <div class="form-group">
+            <label for="valorVenda">Valor do Produto</label>
+            <input class="form-control" type="text" />
+        </div>
+
+        <button type="submit" class="btn btn-default">Incluir Produto</button>
+    </div>
+
+    <br />
+    <div class="table-responsive">
+        <h4>Itens do Pedido</h4>
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Código Produto</th>
+                    <th>Nome Produto</th>
+                    <th>Valor Unitário</th>
+                    <th>Quantidade</th>
+                    <th>Sub Total</th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+}
+
+<br />
+
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

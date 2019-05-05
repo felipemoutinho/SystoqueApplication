@@ -15,7 +15,7 @@ namespace SystoqueApplication.Models
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime dataVenda { get; set; }
 
-        [Display(Name = "Data Venda")]
+        [Display(Name = "Data Previsão Entrega")]
         [Required(ErrorMessage = "Obrigatório informar a data previsão de entrega!")]
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
@@ -28,10 +28,8 @@ namespace SystoqueApplication.Models
         public string statusVenda { get; set; }
 
         [Display(Name = "Vendedor")]
-        public int Matricula { get; set; }
-
-        [ForeignKey("Matricula")]
-        public virtual VendedorModel vendedor { get; set; }
+        [Required(ErrorMessage = "Informar o vendedor")]
+        public  VendedorModel vendedor { get; set; }
 
     }
 }

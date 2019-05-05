@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SystoqueApplication.Models
 {
@@ -15,16 +14,10 @@ namespace SystoqueApplication.Models
         [Display(Name = "Quantidade Item")]
         public int qtdItem { get; set; }
 
-        [Display(Name = "Produto")]
-        public string codigoBarra { get; set; }
+        public  List<Produto> produto {get;set;}
 
-        public int codVenda { get; set; }
-
-        [ForeignKey("codigoBarra")]
-        public virtual List<Produto> produto {get;set;}
-
-        [ForeignKey("codVenda")]
-        public virtual Venda venda { get; set; }        
+        
+        public Venda venda { get; set; }        
        
     }
 }
