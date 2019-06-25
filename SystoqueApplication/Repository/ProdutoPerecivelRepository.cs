@@ -38,7 +38,7 @@ namespace SystoqueApplication.Repository
 
                 return produto;
             }
-            return produto = null;
+            return null;
         }
 
         public void Incluir(ProdutoPerecivel produto)

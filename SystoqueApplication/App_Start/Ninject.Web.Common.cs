@@ -74,6 +74,8 @@ namespace SystoqueApplication.App_Start
             kernel.Bind<IProdutoNaoPerecivelServices>().To<ProdutoNaoPerecivelServices>();
             kernel.Bind<IProdutoPerecivelRepository>().To<ProdutoPerecivelRepository>();
             kernel.Bind<IProdutoPerecivelServices>().To<ProdutoPerecivelServices>();
+            kernel.Bind<IItemRepository>().To<ItemRepository>();
+            kernel.Bind<IItemService>().To<ItemServices>();
         }        
     }
 }

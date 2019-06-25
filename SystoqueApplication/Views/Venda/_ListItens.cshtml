@@ -1,0 +1,25 @@
+﻿@model IEnumerable<SystoqueApplication.Models.Item>
+
+
+
+@foreach (var item in Model)
+{
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.produto.codigoBarra)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.produto.nomeProduto)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.produto.valorVenda)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.qtdItem)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.valorItem)
+        </td>
+    </tr>
+}
+

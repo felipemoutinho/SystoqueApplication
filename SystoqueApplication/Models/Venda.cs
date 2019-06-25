@@ -1,11 +1,14 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
 
 namespace SystoqueApplication.Models
 {
     public class Venda
     {
+        
         [Key]
         public int codVenda { get; set; }
 
@@ -22,6 +25,7 @@ namespace SystoqueApplication.Models
          public DateTime dataPrevEntrega { get; set; }
 
         [Display(Name = "Total Venda")]
+        [DataType(DataType.Currency)]
         public decimal totalVenda { get; set; }
 
         [Display(Name = "Status Venda")]
@@ -31,5 +35,17 @@ namespace SystoqueApplication.Models
         [Required(ErrorMessage = "Informar o vendedor")]
         public  VendedorModel vendedor { get; set; }
 
+        private int RetornaCodigoVenda()
+        {
+            var chars = "0123456789";
+            var random = new Random();
+            var result = new string(Enumerable.Repeat(chars, 7).Select(s => s[random.Next(s.Length)]).ToArray());
+            return int.Parse(result);
+        }
+        
+        public Venda()
+        {
+            codVenda = RetornaCodigoVenda();
+        }
     }
 }

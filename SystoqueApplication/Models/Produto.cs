@@ -17,6 +17,7 @@ namespace SystoqueApplication.Models
 
         [Display(Name = "Valor de Venda")]
         [Required(ErrorMessage = "Obrigatório informar o valor de venda!")]
+        [DataType(DataType.Currency)]
         public decimal valorVenda { get; set; }
 
         [Display(Name = "Quantidade")]
