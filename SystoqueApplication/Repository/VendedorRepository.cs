@@ -18,8 +18,9 @@ namespace SystoqueApplication.Repository
 
         public void Alterar(VendedorModel vendedor)
         {
-            string sql = $"update tblvendedor set Nome = '{vendedor.Nome}', DataNasc = '{vendedor.Datanasc.ToString("yyyy/MM/dd")}',Comissao = {vendedor.Comissao}" +
-                $" where Matricula = {vendedor.Matricula}";
+            string sql = $@"update tblvendedor set Nome = '{vendedor.Nome}', DataNasc = '{vendedor.Datanasc.ToString("yyyy/MM/dd")}',
+                            Comissao = {vendedor.Comissao}" +
+                           " where Matricula = {vendedor.Matricula}";
             AcessoBD acesso = new AcessoBD();
             acesso.ComandoSQL(sql);
         }
